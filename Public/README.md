@@ -23,7 +23,7 @@ Outward mod that allows you to modify enemy stats (health, damage, resistances, 
 <details>
     <summary>Deeper Explanation</summary>
 This mod hooks into the <code>SL.OnSceneLoaded</code> method and evaluates the
-provided <code>BalancingRules</code> and <code>FactionRules</code>. These rules
+<code>BalancingRules</code> and <code>FactionRules</code>. These rules
 determine whether your stat modifications should be applied to an enemy.
 
 The mod acts as a central <strong>Enemies Balancer</strong> that stores simple,
@@ -34,6 +34,11 @@ When you publish an event, the rules are applied <strong>immediately</strong> to
 matching enemies in the current scene.
 
 Multiple matching rules <strong>stack</strong> and are all applied to the same enemy.
+
+By default (without specific targeting), rules apply to all regular enemies (non-boss,
+non-unique). Use <code>isForBosses</code>, <code>isForBossPawns</code>,
+<code>isForStoryBosses</code>, <code>isForUniqueArenaBosses</code>, or
+<code>isForUniqueEnemies</code> to target special enemy types.
 
 Other mods can inspect, modify, or react to the <code>BalancingRuleRegistryManager</code>'s
 dynamic state and see how different mods interact with it.
@@ -438,7 +443,7 @@ Stores the current <code>BalancingRuleRegistryManager</code> balance rules into 
 Event Name: <code>SaveBalanceRulesToXml</code><br> 
 Optional: you may provide a full XML file path using the <code>filePath</code>
 parameter. If omitted, the file will be stored at:
-<code>BepInEx/config/gymmed.Enemies_Balancer/BalanceRules-date.xml</code>
+<code>BepInEx/config/gymmed.Mods_Communicator/Enemies_Balancer/BalanceRules-date.xml</code>
 
 <details>
     <summary>Example</summary>
@@ -627,7 +632,7 @@ If you going to provide only <code>enemyName</code> and that enemy is unique
 make sure to provide one of <code>isForBosses</code>,
 <code>isForBossPawns</code>, <code>isForStoryBosses</code>,
 <code>isForUniqueArenaBosses</code>, <code>isForUniqueEnemies</code> parameters.<br>
-Enemies a compared by <code>UID + _ + Area.GetName().Trim().Replace(' ', '_')</code>
+Enemies internally are compared by <code>UID + _ + Area.GetName().Trim().Replace(' ', '_')</code>
 because even UID repeat(is not truly unique) in different scenes and adding
 location prevents collision.<br>
 Data collected using <a href="https://thunderstore.io/c/outward/p/GymMed/Scene_Tester/">Outward Scene Tester</a>
@@ -3162,7 +3167,7 @@ All enemies included in <code>isForUniqueEnemies</code>. They are all compared b
 1. Install [BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html)
 2. Install [SideLoader](https://github.com/sinai-dev/SideLoader)
 3. Install [Mods Communicator](https://github.com/GymMed/Outward-Mods-Communicator)
-4. Copy <code>OutwardEnemiesBalancer.dll</code> to <code>BepInEx/plugins/</code>
+4. Copy <code>OutwardEnemiesBalancer.dll</code> to <code>BepInEx/plugins/OutwardEnemiesBalancer/</code>
 
 ## Configuration
 
@@ -3178,7 +3183,7 @@ This approach ensures your XML syntax is always correct.
 </details>
 
 XML configuration file is located at:
-<code>BepInEx/config/gymmed.Enemies_Balancer/BalanceRules.xml</code>
+<code>BepInEx/config/gymmed.Mods_Communicator/Enemies_Balancer/BalanceRules.xml</code>
 
 <details>
     <summary>XML Format</summary>
