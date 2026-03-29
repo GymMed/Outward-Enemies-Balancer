@@ -1,0 +1,48 @@
+using System;
+
+namespace OutwardEnemiesBalancer.Utility.Enums
+{
+    public enum EnemyBalanceParams
+    {
+        BalanceRuleId,
+        EnemyId,
+        EnemyName,
+        AreaEnum,
+        AreaFamily,
+        Faction,
+        IsForBosses,
+        IsForBossesPawns,
+        IsForStoryBosses,
+        IsForUniqueArenaBosses,
+        IsForUniqueEnemies,
+        ExceptIds,
+        ExceptNames,
+        StatModifications,
+        ModifierType,
+        StatType,
+        Value,
+        MinClamp,
+        MaxClamp,
+        MaxHealth,
+        MaxStamina,
+        MaxMana,
+        HealthRegen,
+        StaminaRegen,
+        ManaRegen,
+        DamageType,
+        DamageValue,
+        ResistanceValue,
+        ProtectionValue,
+        ColdProtection,
+        HeatProtection,
+        CorruptionResistance,
+        Waterproof,
+        Impact,
+        ImpactResistance,
+        MovementSpeed,
+        AttackSpeed,
+        LoadBalanceRulesXmlPath,
+        StoreBalanceRulesXmlPath,
+        NewFaction,
+    }
+}

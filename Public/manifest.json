@@ -1,0 +1,11 @@
+{
+	"name": "Enemies_Balander",
+	"version_number": "0.0.1",
+	"website_url": "https://github.com/GymMed/Outward-Enemies-Balancer",
+	"description": "This is a library for balancing enemies with Mods Communicator. Create rules that changes worlds enemies stats.",
+	"dependencies": [
+		"GymMed-Mods_Communicator-1.2.0",
+		"sinai-dev-SideLoader-3.8.4",
+		"BepInEx-BepInExPack_Outward-5.4.19"
+	]
+}

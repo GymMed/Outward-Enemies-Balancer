@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BalanceRules>
+  <Rule>
+    <Id>sample-rule-1</Id>
+    <EnemyName>Mana Rat</EnemyName>
+    <StatModifications>
+      <Stat StatName="MaxHealth" Value="2.0"/>
+      <Stat StatName="PhysicalResistance" Value="15"/>
+    </StatModifications>
+  </Rule>
+  <Rule>
+    <Id>boss-health-buffer</Id>
+    <IsBoss>true</IsBoss>
+    <StatModifications>
+      <Stat StatName="MaxHealth" Value="1.5"/>
+    </StatModifications>
+    <ExceptNames>
+      <Name>Iron Banner Statue</Name>
+    </ExceptNames>
+  </Rule>
+  <Rule>
+    <Id>area-fire-weakness</Id>
+    <AreaFamilyName>Abrassar</AreaFamilyName>
+    <StatModifications>
+      <Stat StatName="FireResistance" Value="0"/>
+      <Stat StatName="ColdResistance" Value="50"/>
+    </StatModifications>
+  </Rule>
+</BalanceRules>
